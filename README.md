@@ -183,3 +183,20 @@ The test suite is structured around `pytest`. Run tests using the following comm
 pytest
 ```
 *(Ensure you have a test database configured in the environment before executing tests, as specified in [test_users.py](file:///e:/codes/AI_ML/Backend/FastApi/blogging_website/tests/test_users.py).)*
+
+---
+
+## 🔮 Future Enhancements & Roadmap
+
+Currently, the application is configured for local development and uses local file storage for media. The following improvements and features are planned for future updates:
+
+*   ☁️ **AWS S3 Cloud Storage Integration**:
+    *   *Current State*: Profile pictures and uploaded media assets are stored locally on the server filesystem inside the `media/profile_pics/` directory.
+    *   *Planned Update*: Migrate media handling to **AWS S3** (or Amazon S3-compatible object storage such as Cloudflare R2 / DigitalOcean Spaces) using `boto3` / `aioboto3` for scalable, cloud-native file storage and CDN delivery.
+*   🚀 **Production Deployment & Cloud Hosting**:
+    *   *Current State*: Runs locally on `http://localhost:8000`.
+    *   *Planned Update*: Add Docker containerization (`Dockerfile` and `docker-compose.yml`) and deploy to cloud platforms (AWS EC2 / App Runner / Render) managed by Gunicorn with Uvicorn worker processes behind an Nginx reverse proxy.
+*   💬 **Comments & Interactive Discussions**:
+    *   Allow registered users to leave comments, reply to blog posts, and participate in discussions.
+*   🔍 **Full-Text Search & Tagging**:
+    *   Implement post tagging and full-text search across titles and content using a PostgreSQL full-text search index.
